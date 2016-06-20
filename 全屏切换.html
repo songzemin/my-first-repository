@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        *{
+            margin:0;
+            padding:0;
+            background-color: #fff;
+        }
+        .continer{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+        .continer:nth-child(1){
+            background-color: green;
+        }
+        .continer:nth-child(2){
+            background-color: yellow;
+        }
+        .continer:nth-child(3){
+            background-color: blue;
+             
+        }
+        .continer:nth-child(4){
+            background-color: pink;
+        }
+        .continer-layer{
+            animation: layer 1s 1;
+        }
+        @keyframes layer{
+            from{
+                margin-top:100px;
+            }
+            to{
+                margin: 0;
+            }
+        }
+    </style>
+    <script type="text/javascript" src="jquery.min.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var len = $('body .continer').length;//获取continer个数
+ 
+            //循环添加层级
+            for(i=0; i<len; i++){
+                $('.continer:eq('+i+')').css('z-index',i)
+            }
+ 
+            //当点击时触发事件
+            $('body').on('click', '.continer', function(event) {
+ 
+                $(this).css('z-index',0);//把当前层排到最下面
+                var index = parseInt($(this).index());//获得当前层的顺序号
+ 
+                $('body .continer:eq('+(index-1)+')').addClass('continer-layer');//添加动画
+                 
+                //层级排序
+                for(i=0; i<len; i++){
+                    if(i != index){//当前层级不排序
+                        var z_index = parseInt($('body .continer:eq('+i+')').css('z-index'));//获取层级的顺序
+                        $('body .continer:eq('+i+')').css('z-index',(z_index+1));
+                    }
+                }
+                //完成后清除动画
+                setTimeout(function() {
+                    $('body .continer:eq('+(index-1)+')').removeClass('continer-layer')
+                }, 1000);
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="continer">1</div>
+    <div class="continer">2</div>
+    <div class="continer">3</div>
+    <div class="continer">4</div>
+</body>
+</html>

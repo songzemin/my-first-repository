@@ -1,0 +1,43 @@
+<!DOCTYPE html>  
+<html>  
+<!-- 效果预览：http://hovertree.com/texiao/jqimg/4/ -->
+<head><meta name="viewport" content="width=device-width, initial-scale=1" />  
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
+<meta http-equiv="Content-Language" content="zh-CN">  
+<title>jQuery插件SuperSlide实现焦点图轮播 - 何问起</title><base target="_blank" />  
+<link href="http://hovertree.com/texiao/jqimg/4/css/hovertreess.css" rel="stylesheet" />  
+<script type="text/javascript" src="http://down.hovertree.com/jquery/jquery-1.7.2.min.js"></script>  
+<script type="text/javascript" src="http://hovertree.com/texiao/jqimg/4/js/jquery.SuperSlide.js"></script>  
+</head>  
+<body>  
+<div class="focusBox" style="margin:30px auto">  
+<ul class="pic" style="position: relative; width: 320px; height: 240px;">  
+<li style="position: absolute; width: 320px; left: 0px; top: 0px; display: none;"><a href="http://hovertree.com/menu/texiao/" target="_blank"><img src="http://hovertree.com/texiao/jqimg/4/images/1.jpg"></a></li>  
+<li style="position: absolute; width: 320px; left: 0px; top: 0px; display: none;"><a href="http://hovertree.com/h/bjaf/szbeijing.htm" target="_blank"><img src="http://hovertree.com/texiao/jqimg/4/images/2.jpg"></a></li>  
+<li style="position: absolute; width: 320px; left: 0px; top: 0px; display: list-item;"><a href="http://hovertree.com/h/bjaf/hovertreebox.htm" target="_blank"><img src="http://hovertree.com/texiao/jqimg/4/images/3.jpg"></a></li>  
+<li style="position: absolute; width: 320px; left: 0px; top: 0px; display: none;"><a href="http://hovertree.com/h/bjaf/8c5uhche.htm" target="_blank"><img src="http://hovertree.com/texiao/jqimg/4/images/4.jpg"></a></li>  
+</ul>  
+<div class="txt-bg"></div>  
+<div class="txt">  
+<ul>  
+<li style="bottom: -36px;"><a href="http://hovertree.com/menu/texiao/">美女福利图Quiet</a></li>  
+<li style="bottom: -36px;"><a href="http://hovertree.com/h/bjaf/szbeijing.htm">美女福利图DoubleLi</a></li>  
+<li style="bottom: 0px;"><a href="http://hovertree.com/h/bjaf/hovertreebox.htm">美女福利图Quiet</a></li>  
+<li style="bottom: -36px;"><a href="http://hovertree.com/h/bjaf/8c5uhche.htm">美女福利图Quiet</a></li>  
+</ul></div>  
+<ul class="num">  
+<li class=" "><a>1</a><span></span></li>  
+<li class=" "><a>2</a><span></span></li>  
+<li class=" on"><a>3</a><span></span></li>  
+<li class=" "><a>4</a><span></span></li>  
+</ul>  
+</div>  
+<script type="text/javascript">  
+jQuery(".focusBox").slide({ titCell:".num li", mainCell:".pic",effect:"fold", autoPlay:true,trigger:"click",startFun:function(i){jQuery(".focusBox .txt li").eq(i).animate({"bottom":0}).siblings().animate({"bottom":-36});}});  
+</script>  
+<div style="text-align:center;clear:both">  
+<p>适用浏览器：IE8、360、FireFox、Chrome、Safari、Opera、傲游、搜狗、世界之窗.</p>  
+<p>来源：<a href="http://hovertree.com" target="_blank">何问起</a> <a href="http://hovertree.com/h/bjaf/superslide.htm">原文</a> <a href="http://hovertree.com/texiao/">特效</a></p>  
+</div>  
+</body>  
+</html>
